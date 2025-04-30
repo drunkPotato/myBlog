@@ -1,8 +1,8 @@
 ---
 title: "Book Summary & Insights: How AI Will Change Your Life by Patrick Dixon"
-date: 2023-10-27 # Or use Eleventy's automatic date setting
-tags: ["book-summary", "AI", "technology", "future"]
-layout: base.njk # Assuming your layout file is base.njk
+date: 2023-10-27
+tags: ["book-summary", "AI", "technology", "future", "post"] # <-- Added "post"
+layout: base.njk
 ---
 
 ## Introduction
