@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif; /* Use a basic sans-serif font */
+    line-height: 1.6;      /* Improve readability */
+    margin: 20px;          /* Add some space around the edges */
+    background-color: #f4f4f4; /* Light grey background */
+  }
+  
+  header {
+    background-color: #333; /* Dark grey header background */
+    color: #fff;           /* White text in header */
+    padding: 10px 20px;     /* Spacing inside header */
+    margin-bottom: 20px;    /* Space below header */
+  }
+  
+  h1 {
+    margin: 0; /* Remove default margin from h1 inside header */
+  }
+  
+  main {
+    background-color: #fff; /* White background for main content */
+    padding: 20px;          /* Spacing inside main content area */
+    border-radius: 5px;     /* Slightly rounded corners */
+  }
+  
+  footer {
+    margin-top: 30px;       /* Space above footer */
+    text-align: center;     /* Center footer text */
+    font-size: 0.8em;       /* Smaller font size */
+    color: #555;           /* Grey footer text */
+  }
