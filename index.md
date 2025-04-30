@@ -1,15 +1,15 @@
 ---
 title: My Awesome Blog Homepage
-layout: base.njk 
+layout: base.njk
+templateEngineOverride: njk, md  # <-- ADD THIS LINE
 ---
 
 # Welcome to My Blog!
-
-This is the beginning of my Eleventy site. I'll be posting book summaries and devlogs here.
+# ... rest of your intro text ...
 
 ## Recent Posts
 
-{% set postslist = collections.post | reverse %} {# Get all posts tagged 'post', newest first #}
+{% set postslist = collections.post | reverse %} {# Now Nunjucks will understand this #}
 
 <ul>
   {% for post in postslist %}
@@ -18,7 +18,9 @@ This is the beginning of my Eleventy site. I'll be posting book summaries and de
         {{ post.data.title }}
       </a>
       {# Optional: Add the date #}
+      {% if post.date %} {# Check if date exists #}
       <time datetime="{{ post.date | htmlDateString }}"> ({{ post.date | readableDate }})</time>
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
