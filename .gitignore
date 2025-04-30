@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build output
+_site/
+
+# Optional Mac files
+.DS_Store
+
+# Optional Windows files
+Thumbs.db
+
+# Optional Eleventy cache
+.cache/

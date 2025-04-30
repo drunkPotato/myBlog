@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title> {# Uses the title from front matter #}
+    <link rel="stylesheet" href="/css/style.css"> {# Link to a CSS file we might create later #}
+  </head>
+  <body>
+
+    <header>
+      <h1>{{ title }}</h1> {# Display the title again #}
+    </header>
+
+    <main>
+      {{ content | safe }} {# This is where the Markdown content from index.md will be inserted #}
+    </main>
+
+    <footer>
+      <p>© 2023 Your Name Here</p>
+    </footer>
+
+  </body>
+</html>
