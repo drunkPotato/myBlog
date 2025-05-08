@@ -1,0 +1,27 @@
+---
+title: My Awesome Blog Homepage
+layout: base.njk
+---
+
+<h1>Exploring ideas of technology, philosophy, and the future.</h1>
+
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  <div class="post-grid">
+    {% for post_item in collections.postsReversedAndLimited %}
+      <article class="post-card" {% if post_item.data.image %} style="background-image: url('{{ post_item.data.image | url }}');"{% endif %}>
+        <div class="post-card-overlay"> {# Added overlay for text readability #}
+          <div class="post-content">
+            <h3><a href="{{ post_item.url }}">{{ post_item.data.title }}</a></h3>
+            <p class="post-date">{{ post_item.date | readableDate }}</p>
+            {% if post_item.data.excerpt %}
+              <p class="post-excerpt">{{ post_item.data.excerpt }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    {% else %}
+      <p>No recent posts found.</p>
+    {% endfor %}
+  </div>
+</section>

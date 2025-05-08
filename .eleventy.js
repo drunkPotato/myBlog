@@ -1,27 +1,34 @@
-const { DateTime } = require("luxon"); // Require the Luxon library
+// .eleventy.js
+const { DateTime } = require("luxon");
 
 module.exports = function(eleventyConfig) {
-  // Passthrough Copy: Copy `css/` folder to `_site/css/`
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/images");
 
-  // Add readableDate filter
   eleventyConfig.addFilter("readableDate", dateObj => {
-    // Format date to 'dd LLL yyyy' (e.g., 27 Oct 2023)
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
-
-  // Add htmlDateString filter
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    // Format date to 'yyyy-LL-dd' (e.g., 2023-10-27)
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
   });
 
-  // Return your Object options:
+  // Custom collection for recent posts (reversed and limited)
+  eleventyConfig.addCollection("postsReversedAndLimited", function(collectionApi) {
+    const posts = collectionApi.getFilteredByTag("post")
+      .slice(0) // Create a shallow copy
+      .reverse(); // Reverse to get newest first
+    return posts.slice(0, 6); // Then take the first 6 (or fewer if less than 6 exist)
+  });
+
   return {
     dir: {
-      input: ".",
+      input: "src",
       includes: "_includes",
+      data: "_data",
       output: "_site"
-    }
+    },
+    templateFormats: ["md", "njk", "html"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   };
 };

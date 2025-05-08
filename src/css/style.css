@@ -1,0 +1,223 @@
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f2f5; /* Slightly cooler grey background */
+  color: #2a2a2a;
+}
+
+/* Header */
+header {
+  background-color: #1e1e1e; /* Deeper grey-black for contrast */
+  color: #ffffff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+/* Main Content Area */
+main {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Headings */
+h2 {
+  color: #004c99;
+  border-bottom: 2px solid #cce0ff;
+  padding-bottom: 6px;
+  margin-top: 40px;
+}
+
+h3 {
+  color: #006699;
+  margin-top: 30px;
+}
+
+h4 {
+  color: #007acc;
+}
+
+/* Paragraphs */
+p {
+  margin: 1em 0;
+  font-size: 1.05em;
+}
+
+/* Lists */
+ul {
+  margin: 1em 0;
+  padding-left: 1.2em;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #666666;
+  padding: 20px;
+  border-top: 1px solid #dddddd;
+}
+
+/* Code Block (if needed later) */
+code {
+  background-color: #f3f3f3;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.95em;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  text-decoration: none;
+  color: #004c99;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.recent-posts {
+  margin-top: 40px;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+.post-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.post-date {
+  font-size: 0.85em;
+  color: #777;
+}
+
+.post-excerpt {
+  font-size: 0.95em;
+  color: #333;
+}
+
+.post-card {
+  border-radius: 10px;
+  overflow: hidden; /* Important for border-radius with background images */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly enhanced shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  
+  /* Background image properties */
+  background-size: cover;     /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  
+  position: relative; /* Needed for positioning the overlay */
+  min-height: 250px;  /* Set a minimum height for the card, adjust as needed */
+  display: flex; /* To make the overlay fill the card */
+  flex-direction: column; /* For content flow if overlay doesn't cover everything */
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove the style for .post-card img as we're using background-image now */
+/* .post-card img { ... } */
+
+.post-card-overlay {
+  position: absolute; /* Position over the background image */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay. Adjust color and opacity (last value) */
+  padding: 20px; /* Padding for the content within the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom. Use 'center' or 'flex-start' if preferred */
+  color: #fff; /* Text color will be white on the dark overlay */
+  border-radius: 10px; /* Match parent's border-radius */
+}
+.post-content h3 {
+  margin: 0 0 10px 0; /* Add some bottom margin */
+  font-size: 1.2em; /* Slightly larger */
+}
+
+.post-content h3 a {
+  text-decoration: none;
+  color: #ffffff; /* White text for better contrast on overlay */
+}
+
+.post-content h3 a:hover {
+  text-decoration: underline;
+  color: #f0f0f0; /* Slightly off-white on hover */
+}
+
+.post-date {
+  font-size: 0.8em;
+  color: #e0e0e0; /* Lighter gray for better contrast on overlay */
+  margin-bottom: 8px;
+}
+
+.post-excerpt {
+  font-size: 0.9em;
+  color: #f5f5f5; /* Light text for readability */
+  line-height: 1.5;
+}

@@ -1,8 +1,10 @@
 ---
 title: "Book Summary & Insights: How AI Will Change Your Life by Patrick Dixon"
 date: 2023-10-27
-tags: ["book-summary", "AI", "technology", "future", "post"] # <-- Added "post"
+tags: ["book-summary", "AI", "technology", "future", "post"]
 layout: base.njk
+image: /images/book-summary.jpg
+excerpt: A summary of how AI is reshaping the future, based on Patrick Dixon's predictions.
 ---
 
 ## Introduction
