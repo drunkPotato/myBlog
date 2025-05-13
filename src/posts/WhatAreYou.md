@@ -6,18 +6,39 @@ layout: base.njk
 image: /images/ai.jpg
 ---
 
-## Introduction
+## What is going on?
 
 
-It's easy to be caught in the current.
-However, one should stop and think.
+Many of us live reactively. Swept along by impulses and pressures we rarely dissect. <br>
+This lack of examination leads to confusion, frustration and a sense of being a passenger in our own lifes. <br>
 
-We get lost in the day-to-day, but stepping back to examine the core aspects of our own existence can be incredibly empowering.
 
-( Note: Add Examples where this is beneficial)
+Did you ever: <br><br>
 
-One of the more important skills is to know what is important.
-Let's begin.
+*   Spend hours consuming social media to suddently notice hours have passed and you feel worse than before? <br>
+*   Bingewatch a series the entire day, to notice you find it extremely boring? <br>
+*   Lose your temper because of a minor setback or a simple provocation? <br>
+*   Buy something you didn't need only to realise you wasted your money? <br><br>
+*   Played videogames for hours only to quit more frustrated and unhappy than before? <br><br>
+
+It's possible to go on and on with common pitfalls <br>
+All of these things do not happen by coincidence. In fact the opposite is the truth. <br>
+
+<br><br>
+Try to press these buttons until they display "You Win!"
+
+
+<div class="interactive-game-two">
+  <button id="left-button">Left</button> 
+  <button id="right-button">Right</button>
+  <p id="hint-message" aria-live="polite" style="min-height: 1.2em;"></p> 
+  
+  <p id="victory-message" aria-live="polite"></p> 
+
+</div>
+<script src="/js/logic.js" defer></script>
+
+
 
 ## Levels of You
 

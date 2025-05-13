@@ -221,3 +221,7 @@ nav a:hover {
   color: #f5f5f5; /* Light text for readability */
   line-height: 1.5;
 }
+
+#victory-message {
+  white-space: pre-line; 
+}
