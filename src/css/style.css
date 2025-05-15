@@ -1,227 +1,289 @@
-/* Base Styles */
+html {
+  font-size: 127.5%; 
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-size: 1.5rem; 
+  line-height: 1.75;
   margin: 0;
-  padding: 20px;
-  background-color: #f0f2f5; /* Slightly cooler grey background */
+  padding: 20px; 
+  background-color: rgb(240, 230, 230);
   color: #2a2a2a;
 }
 
-/* Header */
 header {
-  background-color: #1e1e1e; /* Deeper grey-black for contrast */
+  background-color: #6f6464; 
   color: #ffffff;
-  padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+  padding: 30px 20px;
+  margin-bottom: 45px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.8em;
+  font-size: 2.4rem;
 }
 
-/* Main Content Area */
-main {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Headings */
-h2 {
-  color: #004c99;
-  border-bottom: 2px solid #cce0ff;
-  padding-bottom: 6px;
-  margin-top: 40px;
-}
-
-h3 {
-  color: #006699;
-  margin-top: 30px;
-}
-
-h4 {
-  color: #007acc;
-}
-
-/* Paragraphs */
-p {
-  margin: 1em 0;
-  font-size: 1.05em;
-}
-
-/* Lists */
-ul {
-  margin: 1em 0;
-  padding-left: 1.2em;
-}
-
-ul li {
-  margin-bottom: 0.5em;
-}
-
-/* Footer */
-footer {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 0.9em;
-  color: #666666;
-  padding: 20px;
-  border-top: 1px solid #dddddd;
-}
-
-/* Code Block (if needed later) */
-code {
-  background-color: #f3f3f3;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: monospace;
-  font-size: 0.95em;
-}
-
-/* Navigation bar */
 nav {
-  background-color: #ffffff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  margin-bottom: 30px;
+  padding: 18px 0; 
+  margin-bottom: 45px; 
+  display: flex;
+  justify-content: center;
+  width: 100%; 
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 20px;
+  display: flex; 
+  gap: 30px;
 }
 
 nav li {
-  display: inline;
+  display: inline; 
 }
 
 nav a {
   text-decoration: none;
-  color: #004c99;
+  color: #003366; 
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 nav a:hover {
   text-decoration: underline;
+  color: #005c99; 
 }
 
+main {
+  background-color: rgb(230, 220, 220);
+  padding: 45px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+  min-width: 1000px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+
+h2 {
+  color: #1e70c2;
+  border-bottom: 2px solid #b3d1ff; 
+  padding-bottom: 10px; 
+  margin-top: 55px; 
+  font-size: 2.1rem;
+}
+
+h3 {
+  color: #006699;
+  margin-top: 45px; 
+  font-size: 1.8rem;
+}
+
+h4 {
+  color: #007acc;
+  font-size: 1.5rem;
+  /* MODIFICATION: Ensure h4 (like "Example 2: Random Buttons") doesn't get a bottom border */
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.8rem; /* Adjust space after h4 if needed */
+}
+
+p {
+  margin-top: 0; 
+  margin-bottom: 1.35rem;
+  padding-bottom: 1.35rem; 
+  border-bottom: 3px solid #c1bcbc;
+}
+
+
+main p:last-child, 
+.post-content p:last-child, 
+.post-excerpt:last-child,
+.interactive-game-two p:last-child, /* Already here, good */
+#victory-message:last-child
+ { 
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+ul {
+  margin-top: 0;
+  margin-bottom: 1.35rem; 
+  padding-left: 1.6em; 
+}
+
+ul li {
+  margin-bottom: 0.7em; 
+}
+
+footer {
+  margin-top: 70px; 
+  text-align: center;
+  font-size: 1rem;
+  color: #555555; 
+  padding: 30px 20px; 
+  border-top: 1px solid #cccccc; 
+}
+
+code {
+  background-color: #f0f0f0; 
+  padding: 4px 8px; 
+  border-radius: 5px; 
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #c7254e; 
+}
+
+
 .recent-posts {
-  margin-top: 40px;
+  margin-top: 55px; 
 }
 
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px; 
 }
 
 .post-card {
-  background-color: #fff;
-  border-radius: 10px;
+  border-radius: 14px; 
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-  transition: transform 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-}
-
-.post-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.post-date {
-  font-size: 0.85em;
-  color: #777;
-}
-
-.post-excerpt {
-  font-size: 0.95em;
-  color: #333;
-}
-
-.post-card {
-  border-radius: 10px;
-  overflow: hidden; /* Important for border-radius with background images */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly enhanced shadow */
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   
-  /* Background image properties */
-  background-size: cover;     /* Cover the entire area */
-  background-position: center; /* Center the image */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   
-  position: relative; /* Needed for positioning the overlay */
-  min-height: 250px;  /* Set a minimum height for the card, adjust as needed */
-  display: flex; /* To make the overlay fill the card */
-  flex-direction: column; /* For content flow if overlay doesn't cover everything */
+  position: relative;
+  min-height: 300px; 
+  display: flex; 
+  flex-direction: column; 
 }
 
 .post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-7px); 
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); 
 }
 
-/* Remove the style for .post-card img as we're using background-image now */
-/* .post-card img { ... } */
-
 .post-card-overlay {
-  position: absolute; /* Position over the background image */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay. Adjust color and opacity (last value) */
-  padding: 20px; /* Padding for the content within the overlay */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px; 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Aligns content to the bottom. Use 'center' or 'flex-start' if preferred */
-  color: #fff; /* Text color will be white on the dark overlay */
-  border-radius: 10px; /* Match parent's border-radius */
-}
-.post-content h3 {
-  margin: 0 0 10px 0; /* Add some bottom margin */
-  font-size: 1.2em; /* Slightly larger */
+  justify-content: flex-end; 
+  color: #fff; 
+  border-radius: 14px; 
 }
 
-.post-content h3 a {
+.post-content h3, .post-card-overlay h3 { 
+  margin: 0 0 14px 0; 
+  font-size: 1.4rem;
+}
+
+.post-content h3 a, .post-card-overlay h3 a {
   text-decoration: none;
-  color: #ffffff; /* White text for better contrast on overlay */
+  color: #ffffff; 
 }
 
-.post-content h3 a:hover {
+.post-content h3 a:hover, .post-card-overlay h3 a:hover {
   text-decoration: underline;
-  color: #f0f0f0; /* Slightly off-white on hover */
+  color: #f0f0f0; 
 }
 
-.post-date {
-  font-size: 0.8em;
-  color: #e0e0e0; /* Lighter gray for better contrast on overlay */
-  margin-bottom: 8px;
+.post-date { 
+  font-size: 0.9rem; 
+  color: #e0e0e0; 
+  margin-bottom: 12px; 
 }
 
-.post-excerpt {
-  font-size: 0.9em;
-  color: #f5f5f5; /* Light text for readability */
-  line-height: 1.5;
+.post-excerpt { 
+  font-size: 1rem; 
+  color: #f5f5f5; 
+  line-height: 1.6; 
+}
+
+.interactive-game-two {
+  background-color: #fdf5e6; 
+  border: 1px solid #e0d8c8; 
+  border-radius: 12px; 
+  padding: 30px; 
+  margin-top: 1rem; 
+  margin-bottom: 35px; 
+  text-align: left; 
+}
+
+.game-buttons-container {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.interactive-game-two button {
+  margin: 10px 5px 15px 0;
+  padding: 16px 30px;
+  font-size: 1.15rem;
+  border-radius: 8px; 
+  border: none;
+  background-color: #a70d0d;
+  color: #ffffff; /* White text */
+  cursor: pointer;
+  display: inline;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: bold;
+}
+
+.interactive-game-two button:hover {
+  background-color:  #970000;
+  transform: translateY(-2px);
+}
+
+.interactive-game-two button:active {
+  transform: translateY(0px);
+}
+
+.interactive-game-two p { 
+    border-bottom: none !important; 
+    padding-bottom: 0 !important; 
+    margin-bottom: 1rem; 
+    color: #2a2a2a;
+}
+
+#hint-message {
+    min-height: 1.2em; 
+    font-style: italic;
+    color: #444444; /* Slightly darker hint text */
+    margin-bottom: 1.5rem; /* More space after hint */
 }
 
 #victory-message {
   white-space: pre-line; 
+  font-size: 1.5rem;
+  margin-top: 1.8rem; 
+  /* MODIFICATION: Text color for victory message, not green by default */
+  color: #2a2a2a; 
+  font-weight: normal; /* Can be bold if preferred */
+  line-height: 1.6;
+}
+
+/* Optional: If "Well Done!" is specifically styled within victory-message */
+#victory-message strong, #victory-message b {
+    color: #1ac41a; /* Green for "Well Done!" specifically */
+    font-weight: bold;
+    display: block; /* If you want it on its own line */
+    margin-bottom: 0.5rem;
 }

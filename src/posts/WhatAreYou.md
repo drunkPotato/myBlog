@@ -1,40 +1,34 @@
 ---
-title: "Philosophical engagement with our absurd life"
+title: "What is going on?"
 date: 2025-05-08
 tags: ["Understanding", "Life", "future", "post"]
 layout: base.njk
 image: /images/ai.jpg
 ---
 
-## What is going on?
+## Introduction
 
 
-Many of us live reactively. Swept along by impulses and pressures we rarely dissect. <br>
-This lack of examination leads to confusion, frustration and a sense of being a passenger in our own lifes. <br>
-
-
-Did you ever: <br><br>
-
-*   Spend hours consuming social media to suddently notice hours have passed and you feel worse than before? <br>
-*   Bingewatch a series the entire day, to notice you find it extremely boring? <br>
-*   Lose your temper because of a minor setback or a simple provocation? <br>
-*   Buy something you didn't need only to realise you wasted your money? <br><br>
-*   Played videogames for hours only to quit more frustrated and unhappy than before? <br><br>
-
-It's possible to go on and on with common pitfalls <br>
-All of these things do not happen by coincidence. In fact the opposite is the truth. <br>
-
-<br><br>
-Try to press these buttons until they display "You Win!"
-
-
+Do you ever feel like you're running on autopilot? <br>
+It's easy to get caught up in the day-to-day, just responding to whatever comes next. <br>
+Let's explore why deliberate thought can make a big difference.<br><br>
+#### Example 1: Common pitfalls <br>
+Consider a few common behaviours: <br><br>
+  Losing hours to social media's scroll, feeling worse, not better. <br>
+  Starting 'just one more' game / bet / episode long after enjoyment fades." <br>
+  Craving sugar, nicotine, alcohol, where brief highs demand another. <br>
+  Impulsive shopping resulting in regret. <br><br>
+These and similar behaviours are not coincidence. <br>
+They are the result of sophisticated systems. <br>
+#### Example 2: Random Buttons
 <div class="interactive-game-two">
-  <button id="left-button">Left</button> 
-  <button id="right-button">Right</button>
+<p class="game-instruction">Try to press these buttons until they display "You Win!"</p>
+  <div class="game-buttons-container">
+    <button id="left-button">Left</button> 
+    <button id="right-button">Right</button>
+  </div>
   <p id="hint-message" aria-live="polite" style="min-height: 1.2em;"></p> 
-  
   <p id="victory-message" aria-live="polite"></p> 
-
 </div>
 <script src="/js/logic.js" defer></script>
 

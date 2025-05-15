@@ -5,18 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const victoryDisplay = document.getElementById('victory-message');
 
   // --- Configuration ---
-  const WIN_SEQUENCE = ['L', 'R', 'R', 'L', 'L', 'L', 'R'];
-  const HINT_AFTER_TOTAL_PRESSES = 10;
+  const WIN_SEQUENCE = ['R', 'L', 'R', 'L', 'L', 'R', 'R', 'L'];
+  const HINT_AFTER_TOTAL_PRESSES = 8;
   const WIN_TEXT = "You Win!";
   const LOSE_TEXT = "You Lose"; 
-  const HINT_TEXT = `Hint: Follow the sequence: Left, Right, Right, Left, Left, Left, Right`;
+  const HINT_TEXT = `Hint: Follow the sequence: Right, Left, Right, Left, Left, Right, Right, Left`;
   const VICTORY_MESSAGE_TEXT = "Well Done! <br>" +
-    "So what does this show? Take a moment to think about it. <br><br>" +
-    "This game was easy once the goal, possible options, and 'correct decisions' (after the clue) were clear. <br>" +
-    "Any button press before was essentially random because there was no way to tell wether it was the correct decision or not. <br>" +
-    "Your life is not easy. Defining your 'win', navigating options, and implementing decisions is complex. <br> " +
-    "Without a goal, a clear understanding of your abilities and a measure for your decisions, a desirable outcome is less likely. <br> " +
-    "By 'Stopping and Thinking,' we identify goals, clarify options, and search for hints. Thus helping us make the right decisions";
+    "Notice how that felt? Initially, it was random. <br>" +
+    "Once the goal (win), options (buttons), and correct decisions (sequence) were clear, the game changed. <br>" +
+    "You shifted from random guessing to intentional action. An uncertain game became solvable. <br> "
 
   // --- State Variables ---
   let clickSequence = [];
