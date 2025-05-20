@@ -8,7 +8,6 @@ image: /images/ai.jpg
 
 ## Introduction
 
-
 Do you ever feel like you're running on autopilot? <br>
 It's easy to get caught up in the day-to-day, just responding to whatever comes next. <br>
 Let's explore why deliberate thought can make a big difference.<br><br>
@@ -30,11 +29,23 @@ They are the result of sophisticated systems. <br>
   <p id="hint-message" aria-live="polite" style="min-height: 1.2em;"></p> 
   <p id="victory-message" aria-live="polite"></p> 
 </div>
-<script src="/js/logic.js" defer></script>
+<script src="/js/buttons.js" defer></script>
 
+#### Example 3: The Hydra
 
+<div class="interactive-skull-game">
+  <div id="problem-box-container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 80px; padding: 10px; border: 1px solid #ccc; margin: 10px auto; width: 90%; max-width: 300px; background-color: #ffffff;">
+  </div>
+  <div style="text-align: center; margin-top: 15px;">
+    <button id="skull-button" style="font-size: 2.5em; padding: 5px 10px; background-color: #6c757d; color: white; border: 2px solid #343a40; cursor: not-allowed; opacity: 0.4;" title="This seems important... but it's locked." aria-label="A locked button representing the root cause">💀</button>
+  </div>
+  <p id="skull-game-message" aria-live="polite" style="text-align: center; min-height: 1.2em; font-weight: bold; margin-top: 10px;"></p>
+</div>
+<hr>
+<script src="/js/hydra.js" defer></script>
 
-## Levels of You
+<br>
+
 
 ### Level 1: Your Biology
 
