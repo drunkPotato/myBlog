@@ -3,7 +3,7 @@ title: "What is going on?"
 date: 2025-05-08
 tags: ["Understanding", "Life", "future", "post"]
 layout: base.njk
-image: /images/ai.jpg
+image: /images
 ---
 
 ## Introduction
@@ -43,6 +43,7 @@ They are the result of sophisticated systems. <br>
 </div>
 <hr>
 <script src="/js/hydra.js" defer></script>
+
 
 <br>
 
