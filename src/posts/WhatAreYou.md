@@ -34,10 +34,10 @@ They are the result of sophisticated systems. <br>
 #### Example 3: The Hydra
 
 <div class="interactive-skull-game">
-  <div id="problem-box-container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 80px; padding: 10px; border: 1px solid #ccc; margin: 10px auto; width: 90%; max-width: 300px; background-color: #ffffff;">
+  <div id="problem-box-container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 80px; padding: 10px; border: 1px solid #ccc; margin: 10px auto; width: 90%; max-width: 400px; background-color: #ffffff;">
   </div>
   <div style="text-align: center; margin-top: 15px;">
-    <button id="skull-button" style="font-size: 2.5em; padding: 5px 10px; background-color: #6c757d; color: white; border: 2px solid #343a40; cursor: not-allowed; opacity: 0.4;" title="This seems important... but it's locked." aria-label="A locked button representing the root cause">💀</button>
+    <button id="skull-button" style="font-size: 2.5em; padding: 5px 10px; background-color: #6c757d; color: white; border: 2px solid #343a40; cursor: not-allowed; opacity: 0.4;" >💀</button>
   </div>
   <p id="skull-game-message" aria-live="polite" style="text-align: center; min-height: 1.2em; font-weight: bold; margin-top: 10px;"></p>
 </div>
