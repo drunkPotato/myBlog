@@ -287,3 +287,125 @@ code {
     display: block; /* If you want it on its own line */
     margin-bottom: 0.5rem;
 }
+
+
+/* BOAT*/
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f0f8ff; /* Light Alice Blue */
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 40px); /* 10 columns, each 40px wide */
+    grid-template-rows: repeat(10, 40px);    /* 10 rows, each 40px high */
+    border: 2px solid #333;
+    width: 400px; /* 10 * 40px */
+    height: 400px; /* 10 * 40px */
+    position: relative; /* For boat positioning */
+    background-color: #add8e6; /* Light blue for water */
+}
+
+.grid-cell {
+    width: 35px; /* Or 40px depending on your final choice */
+    height: 35px;/* Or 40px depending on your final choice */
+    border: 3px solid #b0c4de; /* Lighter blue border */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* === Boat Game Specific Styles === */
+.game-wrapper-boat-game { /* Styles for the whole game block if needed */
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#boat-grid-container {
+    /* display: grid; // Set in JS */
+    /* grid-template-columns: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
+    /* grid-template-rows: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
+    border: 2px solid #333;
+    /* width & height will be set by JS based on grid size and cell size */
+    position: relative;
+    background-color: #add8e6; /* Water */
+    overflow: hidden; /* In case boat tries to go too far out briefly */
+}
+
+.boat-grid-cell {
+    /* width and height will be var(--boat-cell-size) set by JS */
+    border: 1px solid #97c8dc; /* Lighter blue border for water cells */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boat-entity { /* Class for the boat itself */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 20,90 80,90" style="fill:sienna;"/><rect x="45" y="5" width="10" height="40" style="fill:tan;"/><polygon points="50,5 70,25 50,25" style="fill:white;"/></svg>');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%; /* Fill the cell */
+    height: 100%;
+    z-index: 10;
+    transition: transform 0.3s ease-out; /* Smooth movement transition */
+}
+
+.shore {
+    background-color: #f4a460; /* Sandy brown for shore */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="10" fill="%23c2b280"/><circle cx="50" cy="60" r="15" fill="%23c2b280"/><circle cx="75" cy="30" r="12" fill="%23c2b280"/><path d="M0 80 Q 50 70, 100 80 V 100 H 0 Z" fill="%23e0cfa8"/></svg>'); /* Simple sand/dune SVG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#boat-controls .boat-arrow-button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    margin: 4px;
+    cursor: pointer;
+    background-color: #2196F3;
+    color: white;
+    border: 2px solid transparent; /* For selected state */
+    border-radius: 5px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#boat-controls .boat-arrow-button:hover {
+    background-color: #0b7dda;
+}
+
+#boat-controls .boat-arrow-button.selected {
+    background-color: #ff9800; /* Orange when selected/pending */
+    border-color: #e65100; /* Darker orange border */
+    cursor: not-allowed;
+}
+
+#boat-controls .boat-arrow-button:disabled { /* When game ends or mid-move */
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#boat-take-control-button.active {
+    background-color: #f44336; /* Red when control is active */
+}
+#boat-take-control-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
