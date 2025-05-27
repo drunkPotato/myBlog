@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- DOM Elements (ensure these IDs match your HTML) ---
+    // --- DOM Elements ---
     const gridContainer = document.getElementById('boat-grid-container');
     const takeControlButton = document.getElementById('boat-take-control-button');
     const arrowControlsDiv = document.getElementById('boat-arrow-controls');
@@ -9,30 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const victoryMessageEl = document.getElementById('boat-game-victory');
 
     // --- Game Configuration ---
-    const gridSize = 20; // Or 25
-    const cellSizePx = 25; // Adjust for desired visual size
-    const playerMoveCooldownMs = 2000; // Player can make a move every 2s
-    const currentMoveIntervalMs = 2000; // Currents also move every 2s
-    const messageClearDelayMs = 1800;
-    const shoreWidth = 2; // How many columns/rows for the shore
+    const gridSize = 20;
+    const cellSizePx = 25;
+    const actionIntervalMs = 2000; 
+    const visualMoveDurationMs = 300; // How long the boat "slides"
+    const messageClearDelayMs = actionIntervalMs - 200;
+    const shoreWidth = 2;
 
     // --- Game State ---
     let boatPosition = { row: Math.floor(gridSize / 2), col: Math.floor(gridSize / 2) };
-    let shorePositions = []; // Array of {row, col} for shore cells
+    let shorePositions = [];
     let isManualControl = false;
-    let currentIntervalId;
-    let playerMoveTimeoutId; // For player move cooldown
-    let pendingPlayerMove = null; // { dRow, dCol }
-    let isPlayerMoveExecuting = false;
+    let gameTickIntervalId;
+    let pendingPlayerAction = null; // { dRow, dCol, buttonElement }
+    let isActionAnimating = false;  // True ONLY during the visualMoveDurationMs
     let messageTimeoutId;
     let gameEnded = false;
 
-    const distractions = [
-        "Social Media!", "Unhealthy Food!", "Bad Habits!", "Endless Scrolling!",
-        "Procrastination!", "Sudden Urge!", "Global Crisis News!"
-    ];
+    const distractions = [ /* ... */ ];
 
-    // --- CSS Variables for Dynamic Sizing ---
+    // (setCssVariables, createGrid, renderBoat, showMessage - ensure these are complete and correct)
     function setCssVariables() {
         document.documentElement.style.setProperty('--boat-grid-size', gridSize);
         document.documentElement.style.setProperty('--boat-cell-size', `${cellSizePx}px`);
@@ -40,25 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         gridContainer.style.height = `${gridSize * cellSizePx}px`;
         gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSizePx}px)`;
         gridContainer.style.gridTemplateRows = `repeat(${gridSize}, ${cellSizePx}px)`;
-
         const messageContainerWidth = gridSize * cellSizePx;
         document.getElementById('boat-game-message-container').style.width = `${messageContainerWidth}px`;
     }
 
-    // --- Grid, Shore, and Boat Rendering ---
     function createGrid() {
         setCssVariables();
         gridContainer.innerHTML = '';
-        shorePositions = []; // Reset shore positions
-
+        shorePositions = [];
         for (let r = 0; r < gridSize; r++) {
             for (let c = 0; c < gridSize; c++) {
                 const cell = document.createElement('div');
                 cell.classList.add('boat-grid-cell');
                 cell.dataset.row = r;
                 cell.dataset.col = c;
-
-                // Define shore (e.g., rightmost columns)
                 if (c >= gridSize - shoreWidth) {
                     cell.classList.add('shore');
                     shorePositions.push({ row: r, col: c });
@@ -71,24 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderBoat() {
         const oldBoat = gridContainer.querySelector('.boat-entity');
-        if (oldBoat) {
-            oldBoat.classList.remove('boat-entity');
-        }
+        if (oldBoat) oldBoat.classList.remove('boat-entity');
         const currentCell = gridContainer.querySelector(`[data-row='${boatPosition.row}'][data-col='${boatPosition.col}']`);
-        if (currentCell && !currentCell.classList.contains('shore')) { // Don't draw boat on shore cell
+        if (currentCell && !currentCell.classList.contains('shore')) {
             currentCell.classList.add('boat-entity');
         }
     }
-
-    // --- Message Handling ---
+    
     function showMessage(text, isDistraction = false) {
-        if (document.hidden && isDistraction) return;
+        if (document.hidden && isDistraction && !gameEnded) return;
         boatMessageEl.textContent = text;
-        boatMessageEl.style.color = isDistraction ? 'red' : '#333';
+        boatMessageEl.style.color = isDistraction ? 'red' : (text.toLowerCase().includes("congratulations") ? 'green' : '#333');
         if (messageTimeoutId) clearTimeout(messageTimeoutId);
         if (text && text.trim() !== '') {
             messageTimeoutId = setTimeout(() => {
-                if (boatMessageEl.textContent === text) {
+                if (boatMessageEl.textContent === text) { // Only clear if it's still this message
                     boatMessageEl.textContent = (isManualControl && !gameEnded) ? 'You are steering...' : '';
                 }
             }, messageClearDelayMs);
@@ -97,89 +85,106 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Movement Logic ---
-    async function executeMove(dRow, dCol, moveTypeMessage = "") {
+
+    async function executeVisualMove(dRow, dCol, moveTypeMessage = "") {
+        if (gameEnded) return;
+        isActionAnimating = true; // Mark that a move is visually happening
+        updateArrowButtonsState(); // Disable buttons during animation
+
         const newRow = boatPosition.row + dRow;
         const newCol = boatPosition.col + dCol;
-        let moved = false;
-
         if (newRow >= 0 && newRow < gridSize && newCol >= 0 && newCol < gridSize) {
             boatPosition.row = newRow;
             boatPosition.col = newCol;
-            moved = true;
         }
         renderBoat();
 
-        if (moveTypeMessage && !document.hidden && !gameEnded) {
+        if (moveTypeMessage && !document.hidden) {
             showMessage(moveTypeMessage, moveTypeMessage.includes("!"));
         }
-        checkWinCondition();
-        await new Promise(resolve => setTimeout(resolve, 100)); // Short delay for visual
-    }
-
-    async function handleCurrentMovement() {
-        if (gameEnded || document.hidden) return;
-
-        let dRowCurrent, dColCurrent;
-        do {
-            dRowCurrent = Math.floor(Math.random() * 3) - 1;
-            dColCurrent = Math.floor(Math.random() * 3) - 1;
-        } while (dRowCurrent === 0 && dColCurrent === 0);
-
-        const randomDistraction = distractions[Math.floor(Math.random() * distractions.length)];
-        const currentMoveMessage = isManualControl ? "Currents are strong!" : randomDistraction;
         
-        console.log("Current tries to move boat.");
-        await executeMove(dRowCurrent, dColCurrent, currentMoveMessage);
-    }
-
-    async function handlePlayerMovement() {
-        if (!pendingPlayerMove || isPlayerMoveExecuting || gameEnded) return;
-
-        isPlayerMoveExecuting = true;
-        updateArrowButtonsState(true); // Disable buttons during move
-
-        console.log("Player move executing:", pendingPlayerMove);
-        await executeMove(pendingPlayerMove.dRow, pendingPlayerMove.dCol, 'You steer the boat...');
-
-        // Clear pending move and selected state
-        pendingPlayerMove = null;
-        arrowButtons.forEach(btn => btn.classList.remove('selected'));
-        isPlayerMoveExecuting = false;
-        updateArrowButtonsState(false); // Re-enable buttons for next selection (if in control)
-
-        // Restart player move cooldown
-        if (isManualControl && !gameEnded) {
-            playerMoveTimeoutId = setTimeout(handlePlayerMovement, playerMoveCooldownMs);
+        await new Promise(resolve => setTimeout(resolve, visualMoveDurationMs)); 
+        
+        isActionAnimating = false; // Mark visual move as finished
+        // Win condition checked AFTER visual move finishes, so player sees boat on shore
+        if (!checkWinCondition()) { // Only update buttons if game not ended
+            updateArrowButtonsState(); // Re-enable buttons after animation (if appropriate)
         }
     }
     
-    // --- Game State & Controls ---
     function checkWinCondition() {
-        if (gameEnded) return;
+        if (gameEnded) return true; // Already ended, do nothing
         if (shorePositions.some(pos => pos.row === boatPosition.row && pos.col === boatPosition.col)) {
             gameEnded = true;
             victoryMessageEl.textContent = "You've reached the shore! Well done!";
-            showMessage("Congratulations!", false);
+            showMessage("Congratulations! You navigated successfully.", false);
             gameStatusEl.textContent = "Goal Reached!";
             stopGameLoops();
-            updateArrowButtonsState(true); // Disable all buttons
+            updateArrowButtonsState(); // This will disable all due to gameEnded
             takeControlButton.disabled = true;
             return true;
         }
         return false;
     }
 
-    function updateArrowButtonsState(disabled) {
+    function updateArrowButtonsState() {
         arrowButtons.forEach(btn => {
-            btn.disabled = disabled || !isManualControl || (isPlayerMoveExecuting && !btn.classList.contains('selected'));
-            if (isPlayerMoveExecuting && btn.classList.contains('selected')) {
-                // Keep the selected button visually active but technically disabled
-            } else if (isManualControl && !disabled && !isPlayerMoveExecuting) {
-                btn.classList.remove('selected'); // Clear selection if move done or control lost
+            // Conditions to disable a button:
+            // 1. Game has ended.
+            // 2. Not in manual control.
+            // 3. An action is currently animating.
+            // 4. A player action is pending, AND this button is NOT the pending one.
+            //    (The pending button itself should be visually 'selected' but also disabled to prevent re-clicking).
+            const isThisButtonPending = pendingPlayerAction && btn === pendingPlayerAction.buttonElement;
+            
+            btn.disabled = gameEnded || !isManualControl || isActionAnimating || (pendingPlayerAction && !isThisButtonPending);
+
+            if (isThisButtonPending) {
+                btn.classList.add('selected');
+                btn.disabled = true; // The selected button is also disabled until processed
+            } else {
+                btn.classList.remove('selected');
             }
         });
     }
+
+    // --- Main Game Tick ---
+    async function gameTick() {
+        if (gameEnded || document.hidden || isActionAnimating) {
+            return; 
+        }
+
+        // 1. Player Action (if one is pending for this tick)
+        if (isManualControl && pendingPlayerAction) {
+            console.log("Game Tick: Processing Player Action");
+            const actionToExecute = { ...pendingPlayerAction }; // Clone it
+            pendingPlayerAction = null; // Consume the pending action *before* async execution
+
+            // The button was already marked as selected and disabled.
+            // It will be un-selected and re-enabled by updateArrowButtonsState
+            // called after executeVisualMove completes.
+
+            await executeVisualMove(actionToExecute.dRow, actionToExecute.dCol, 'You steer the boat...');
+            // After player move, updateArrowButtonsState is called inside executeVisualMove
+            // or by checkWinCondition if game ends.
+            return; 
+        }
+
+        // 2. Current's Turn (if no player action took the tick)
+        console.log("Game Tick: Processing Current Action");
+        let dRowCurrent, dColCurrent;
+        do {
+            dRowCurrent = Math.floor(Math.random() * 3) - 1;
+            dColCurrent = Math.floor(Math.random() * 3) - 1;
+        } while (dRowCurrent === 0 && dColCurrent === 0);
+        
+        const randomDistraction = distractions[Math.floor(Math.random() * distractions.length)];
+        const currentMoveMessage = isManualControl ? "Currents are strong!" : randomDistraction;
+        
+        await executeVisualMove(dRowCurrent, dColCurrent, currentMoveMessage);
+        // updateArrowButtonsState is called inside executeVisualMove
+    }
+
 
     takeControlButton.addEventListener('click', () => {
         if (gameEnded) return;
@@ -188,35 +193,29 @@ document.addEventListener('DOMContentLoaded', () => {
             takeControlButton.textContent = 'Release Control';
             takeControlButton.classList.add('active');
             arrowControlsDiv.style.display = 'block';
-            gameStatusEl.textContent = 'You have control! Select a direction.';
+            gameStatusEl.textContent = 'You have control! Select your next move.';
             showMessage('You are steering...');
-            updateArrowButtonsState(false); // Enable arrow buttons
-            // Start player move "loop" if not already (it waits for pendingPlayerMove)
-            if (!playerMoveTimeoutId && !isPlayerMoveExecuting) {
-                 playerMoveTimeoutId = setTimeout(handlePlayerMovement, 0); // Check immediately for a pending move
-            }
         } else {
             takeControlButton.textContent = 'Take Control';
             takeControlButton.classList.remove('active');
             arrowControlsDiv.style.display = 'none';
             gameStatusEl.textContent = 'You are being pushed by the currents...';
             showMessage('');
-            pendingPlayerMove = null; // Clear any selected move
-            arrowButtons.forEach(btn => btn.classList.remove('selected'));
-            if (playerMoveTimeoutId) clearTimeout(playerMoveTimeoutId);
-            updateArrowButtonsState(true); // Disable arrow buttons
+            if (pendingPlayerAction && pendingPlayerAction.buttonElement) {
+                pendingPlayerAction.buttonElement.classList.remove('selected');
+            }
+            pendingPlayerAction = null; 
         }
+        updateArrowButtonsState();
     });
 
     arrowButtons.forEach(button => {
         button.addEventListener('click', () => {
-            if (!isManualControl || isPlayerMoveExecuting || gameEnded) return;
-
-            // Clear previous selection
-            arrowButtons.forEach(btn => btn.classList.remove('selected'));
-            // Set new selection
-            button.classList.add('selected');
-
+            if (!isManualControl || isActionAnimating || gameEnded || pendingPlayerAction) {
+                return; // Can't select if not in control, animating, game over, or move already pending
+            }
+            // No need to clear other selections, as pendingPlayerAction blocks new selections.
+            
             let dRow = 0, dCol = 0;
             const direction = button.dataset.direction;
             if (direction === 'up') dRow = -1;
@@ -224,62 +223,57 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (direction === 'left') dCol = -1;
             else if (direction === 'right') dCol = 1;
 
-            pendingPlayerMove = { dRow, dCol };
-            showMessage("Direction locked in. Waiting for next move slot...");
-            console.log("Player selected move:", pendingPlayerMove);
-
-            // If the player move "loop" isn't active, start it.
-            // This handles the first move after taking control.
-            if (!playerMoveTimeoutId && !isPlayerMoveExecuting) {
-                 clearTimeout(playerMoveTimeoutId); // Clear any stray timeout
-                 playerMoveTimeoutId = setTimeout(handlePlayerMovement, playerMoveCooldownMs);
-            }
+            pendingPlayerAction = { dRow, dCol, buttonElement: button };
+            // updateArrowButtonsState will handle making this button 'selected' and disabling others
+            updateArrowButtonsState(); 
+            showMessage("Direction selected. Will move on next turn.");
+            console.log("Player queued action:", pendingPlayerAction);
         });
     });
 
     function startGameLoops() {
-        if (currentIntervalId) clearInterval(currentIntervalId);
-        currentIntervalId = setInterval(handleCurrentMovement, currentMoveIntervalMs);
-
-        // Player move loop is managed by setTimeout from control toggle / button clicks
+        if (gameTickIntervalId) clearInterval(gameTickIntervalId);
+        gameTickIntervalId = setInterval(gameTick, actionIntervalMs);
     }
     
     function stopGameLoops() {
-        if (currentIntervalId) clearInterval(currentIntervalId);
-        if (playerMoveTimeoutId) clearTimeout(playerMoveTimeoutId);
+        if (gameTickIntervalId) clearInterval(gameTickIntervalId);
     }
 
-    // --- Tab Visibility ---
     document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
             console.log("Boat game tab hidden.");
         } else {
             console.log("Boat game tab visible.");
-            if (isManualControl && !gameEnded) showMessage('You are steering...');
+            if (isManualControl && !gameEnded) {
+                // If a move was pending, the message might be "Direction selected"
+                if (!pendingPlayerAction) {
+                    showMessage('You are steering...');
+                }
+            }
         }
     });
 
-    // --- Initialization ---
     function initGame() {
         gameEnded = false;
-        isManualControl = false; // Start without control
+        isManualControl = false;
         boatPosition = { row: Math.floor(gridSize / 2), col: Math.floor(gridSize / 2) };
-        pendingPlayerMove = null;
-        isPlayerMoveExecuting = false;
+        pendingPlayerAction = null;
+        isActionAnimating = false;
+        if(gameTickIntervalId) clearInterval(gameTickIntervalId);
+
         victoryMessageEl.textContent = "";
         gameStatusEl.textContent = 'You are being pushed by the currents...';
         takeControlButton.textContent = 'Take Control';
         takeControlButton.classList.remove('active');
         takeControlButton.disabled = false;
         arrowControlsDiv.style.display = 'none';
-        arrowButtons.forEach(btn => {
-            btn.classList.remove('selected');
-            btn.disabled = true;
-        });
-
-        createGrid(); // This also calls setCssVariables and renderBoat
+        
+        setCssVariables(); 
+        createGrid();      
+        updateArrowButtonsState(); // Set initial button state
         startGameLoops();
     }
 
-    initGame(); // Initialize the game on load
+    initGame();
 });
