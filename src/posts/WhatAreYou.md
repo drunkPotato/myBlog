@@ -6,20 +6,8 @@ layout: base.njk
 image: /images
 ---
 
-## Introduction
 
-Do you ever feel like you're running on autopilot? <br>
-It's easy to get caught up in the day-to-day, just responding to whatever comes next. <br>
-Let's explore why deliberate thought can make a big difference.<br><br>
-#### Example 1: Common pitfalls <br>
-Consider a few common behaviours: <br><br>
-  Losing hours to social media's scroll, feeling worse, not better. <br>
-  Starting 'just one more' game / bet / episode long after enjoyment fades." <br>
-  Craving sugar, nicotine, alcohol, where brief highs demand another. <br>
-  Impulsive shopping resulting in regret. <br><br>
-These and similar behaviours are not coincidence. <br>
-They are the result of sophisticated systems. <br>
-#### Example 2: Random Buttons
+#### Random Buttons
 <div class="interactive-game-two">
 <p class="game-instruction">Try to press these buttons until they display "You Win!"</p>
   <div class="game-buttons-container">
@@ -31,7 +19,7 @@ They are the result of sophisticated systems. <br>
 </div>
 <script src="/js/buttons.js" defer></script>
 
-#### Example 3: The Hydra
+#### The Hydra
 
 <div class="interactive-skull-game">
   <div id="problem-box-container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 80px; padding: 10px; border: 1px solid #ccc; margin: 10px auto; width: 90%; max-width: 400px; background-color: #ffffff;">
@@ -116,3 +104,13 @@ Well, realising this enables us to recognise patterns in our world and ourselfes
 ## How you can take control
 
 This refers to the 3rd Level
+
+
+#### Common pitfalls <br>
+Consider a few common behaviours: <br><br>
+  Losing hours to social media's scroll, feeling worse, not better. <br>
+  Starting 'just one more' game / bet / episode long after enjoyment fades." <br>
+  Craving sugar, nicotine, alcohol, where brief highs demand another. <br>
+  Impulsive shopping resulting in regret. <br><br>
+These and similar behaviours are not coincidence. <br>
+They are the result of sophisticated systems. <br>

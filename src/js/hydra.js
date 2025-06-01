@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
       createProblemBox(); 
       createProblemBox();
     }
-    if (problemContainer.children.length >= MAX_PROBLEMS_VISIBLE) {
+    else {
       revertSpecificFixedBoxes(boxElement);
     }
 
