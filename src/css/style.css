@@ -1,28 +1,28 @@
 html {
-  font-size: 127.5%; 
+  font-size: 127.5%;
 }
 
 body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   line-height: 1.75;
   margin: 0;
-  padding: 20px; 
+  padding: 20px;
   background-color: rgb(240, 230, 230);
   color: #2a2a2a;
 }
 
 header {
-  background-color: #6f6464; 
+  background-color: #6f6464;
   color: #ffffff;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center; 
+  text-align: center;
   padding: 30px 20px;
   margin-bottom: 45px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 header h1 {
@@ -31,148 +31,139 @@ header h1 {
 }
 
 nav {
-  padding: 18px 0; 
-  margin-bottom: 45px; 
+  padding: 18px 0;
+  margin-bottom: 45px;
   display: flex;
   justify-content: center;
-  width: 100%; 
+  width: 100%;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex; 
+  display: flex;
   gap: 30px;
 }
 
-nav li {
-  display: inline; 
-}
+/* nav li { display: inline; } /* Useless: parent ul is display:flex */
 
 nav a {
   text-decoration: none;
-  color: #003366; 
+  color: #003366;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 nav a:hover {
   text-decoration: underline;
-  color: #005c99; 
+  color: #005c99;
 }
 
 main {
   background-color: rgb(230, 220, 220);
   padding: 45px;
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   min-width: 1000px;
   max-width: 1250px;
   margin: auto;
 }
 
-
 h2 {
   color: #1e70c2;
-  border-bottom: 2px solid #b3d1ff; 
-  padding-bottom: 10px; 
-  margin-top: 55px; 
+  border-bottom: 2px solid #b3d1ff;
+  padding-bottom: 10px;
+  margin-top: 55px;
   font-size: 2.1rem;
 }
 
 h3 {
   color: #006699;
-  margin-top: 45px; 
+  margin-top: 45px;
   font-size: 1.8rem;
 }
 
 h4 {
   color: #007acc;
   font-size: 1.5rem;
-  /* MODIFICATION: Ensure h4 (like "Example 2: Random Buttons") doesn't get a bottom border */
+  /* MODIFICATION: Ensure h4 (like "Example 2: Random Buttons") doesn't get a bottom border /
   border-bottom: none;
   padding-bottom: 0;
-  margin-bottom: 0.8rem; /* Adjust space after h4 if needed */
+  margin-bottom: 0.8rem; / Adjust space after h4 if needed */
 }
 
 p {
-  margin-top: 0; 
+  margin-top: 0;
   margin-bottom: 1.35rem;
-  padding-bottom: 1.35rem; 
+  padding-bottom: 1.35rem;
   border-bottom: 3px solid #c1bcbc;
 }
 
-
-main p:last-child, 
-.post-content p:last-child, 
+main p:last-child,
+.post-content p:last-child,
 .post-excerpt:last-child,
-.interactive-game-two p:last-child, /* Already here, good */
+/* .interactive-game-two p:last-child, /* Redundant: .interactive-game-two p handles this with !important */
 #victory-message:last-child
- { 
+{
   border-bottom: none;
   padding-bottom: 0;
 }
 
-
 ul {
   margin-top: 0;
-  margin-bottom: 1.35rem; 
-  padding-left: 1.6em; 
+  margin-bottom: 1.35rem;
+  padding-left: 1.6em;
 }
 
 ul li {
-  margin-bottom: 0.7em; 
+  margin-bottom: 0.7em;
 }
 
 footer {
-  margin-top: 70px; 
+  margin-top: 70px;
   text-align: center;
   font-size: 1rem;
-  color: #555555; 
-  padding: 30px 20px; 
-  border-top: 1px solid #cccccc; 
+  color: #555555;
+  padding: 30px 20px;
+  border-top: 1px solid #cccccc;
 }
 
 code {
-  background-color: #f0f0f0; 
-  padding: 4px 8px; 
-  border-radius: 5px; 
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 5px;
   font-family: monospace;
   font-size: 0.95rem;
-  color: #c7254e; 
+  color: #c7254e;
 }
 
-
 .recent-posts {
-  margin-top: 55px; 
+  margin-top: 55px;
 }
 
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 30px; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
-
 .post-card {
-  border-radius: 14px; 
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
   position: relative;
-  min-height: 300px; 
-  display: flex; 
-  flex-direction: column; 
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
-  transform: translateY(-7px); 
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); 
+  transform: translateY(-7px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .post-card-overlay {
@@ -182,49 +173,72 @@ code {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px; 
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
-  color: #fff; 
-  border-radius: 14px; 
+  justify-content: flex-end;  /* Pushes .post-content to the bottom */
+  align-items: center;       /* Horizontally centers the .post-content div itself */
+  color: #fff;
+  /* text-align: center; /* This was here before, let's be more specific below */
 }
 
-.post-content h3, .post-card-overlay h3 { 
-  margin: 0 0 14px 0; 
-  font-size: 1.4rem;
+.post-card-overlay .post-content {
+  text-align: center; /* CRITICAL: Ensure text within this container is centered */
+  width: 100%;        /* Allow .post-content to use available width within its centered position */
+                      /* This helps if its children need more space to center properly */
+  max-width: 95%;     /* Optional: Prevent text from touching card edges if padding isn't enough */
 }
 
-.post-content h3 a, .post-card-overlay h3 a {
+/* Reset global p styles for paragraphs within the post card overlay */
+.post-card-overlay .post-content p {
+  border-bottom: none;    /* Remove global p border */
+  padding-bottom: 0;      /* Remove global p padding */
+  margin-bottom: 12px;    /* Set a consistent margin, adjust as needed */
+                           /* .post-date already had this */
+}
+
+.post-card-overlay .post-content h3 {
+  margin: 0 0 14px 0; /* Existing margin */
+  font-size: 1.4rem;  /* Existing font-size */
+  /* text-align: center; /* Should be inherited from .post-content */
+}
+
+.post-card-overlay .post-content h3 a {
   text-decoration: none;
-  color: #ffffff; 
+  color: #ffffff;
 }
 
-.post-content h3 a:hover, .post-card-overlay h3 a:hover {
+.post-card-overlay .post-content h3 a:hover {
   text-decoration: underline;
-  color: #f0f0f0; 
+  color: #f0f0f0;
 }
 
-.post-date { 
-  font-size: 0.9rem; 
-  color: #e0e0e0; 
-  margin-bottom: 12px; 
+.post-card-overlay .post-content .post-date {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  /* margin-bottom is handled by the general .post-card-overlay .post-content p rule now */
+  /* Add the white line as seen in the image */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6); /* Thin, semi-transparent white line */
+  padding-bottom: 10px; /* Space between date text and the line */
+  margin-bottom: 10px;  /* Space after the line (this will override the general p margin if needed) */
 }
 
-.post-excerpt { 
-  font-size: 1rem; 
-  color: #f5f5f5; 
-  line-height: 1.6; 
+.post-card-overlay .post-content .post-excerpt {
+  font-size: 1rem;
+  color: #f5f5f5;
+  line-height: 1.6;
+  margin-bottom: 0; /* Example: No margin after the excerpt, or adjust if needed */
+  /* text-align: center; /* Should be inherited from .post-content */
 }
 
 .interactive-game-two {
-  background-color: #fdf5e6; 
-  border: 1px solid #e0d8c8; 
-  border-radius: 12px; 
-  padding: 30px; 
-  margin-top: 1rem; 
-  margin-bottom: 35px; 
-  text-align: left; 
+  background-color: #fdf5e6;
+  border: 1px solid #e0d8c8;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 1rem;
+  margin-bottom: 35px;
+  text-align: left;
 }
 
 .game-buttons-container {
@@ -237,12 +251,12 @@ code {
   margin: 10px 5px 15px 0;
   padding: 16px 30px;
   font-size: 1.15rem;
-  border-radius: 8px; 
+  border-radius: 8px;
   border: none;
   background-color: #a70d0d;
   color: #ffffff; /* White text */
   cursor: pointer;
-  display: inline;
+  /* display: inline; /* Redundant or incorrect: buttons are typically inline-block by default */
   transition: background-color 0.2s, transform 0.1s;
   font-weight: bold;
 }
@@ -256,156 +270,167 @@ code {
   transform: translateY(0px);
 }
 
-.interactive-game-two p { 
-    border-bottom: none !important; 
-    padding-bottom: 0 !important; 
-    margin-bottom: 1rem; 
-    color: #2a2a2a;
+.interactive-game-two p {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem;
+  color: #2a2a2a;
 }
 
 #hint-message {
-    min-height: 1.2em; 
-    font-style: italic;
-    color: #444444; /* Slightly darker hint text */
-    margin-bottom: 1.5rem; /* More space after hint */
+  min-height: 1.2em;
+  font-style: italic;
+  color: #444444; /* Slightly darker hint text */
+  margin-bottom: 1.5rem; /* More space after hint */
 }
 
 #victory-message {
-  white-space: pre-line; 
+  white-space: pre-line;
   font-size: 1.5rem;
-  margin-top: 1.8rem; 
-  /* MODIFICATION: Text color for victory message, not green by default */
-  color: #2a2a2a; 
-  font-weight: normal; /* Can be bold if preferred */
+  margin-top: 1.8rem;
+  /* MODIFICATION: Text color for victory message, not green by default /
+  color: #2a2a2a;
+  font-weight: normal; / Can be bold if preferred */
   line-height: 1.6;
 }
 
 /* Optional: If "Well Done!" is specifically styled within victory-message */
+/*
 #victory-message strong, #victory-message b {
-    color: #1ac41a; /* Green for "Well Done!" specifically */
-    font-weight: bold;
-    display: block; /* If you want it on its own line */
-    margin-bottom: 0.5rem;
+  color: #1ac41a; /* Green for "Well Done!" specifically * /
+  font-weight: bold;
+  display: block; /* If you want it on its own line * /
 }
+*/
+/* margin-bottom: 0.5rem; /* This was outside the comment block, unclear where it applies. Assuming it was part of the commented rule */
 
 
-/* BOAT*/
-body {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    background-color: #f0f8ff; /* Light Alice Blue */
-}
+/*
+ * Removed duplicate body selector that was here.
+ * The original second body selector was:
+ * body {
+ *   font-family: sans-serif;
+ *   display: flex;
+ *   flex-direction: column;
+ *   align-items: center;
+ *   margin-top: 20px;
+ *   background-color: #f0f8ff; / * Light Alice Blue * /
+ * }
+ * Its flex properties are now covered by #game-container.
+ * If specific font/background is needed for the boat game, apply to #game-container or a similar wrapper.
+*/
 
+/* BOAT */
 #game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* This was margin-top: 20px on the duplicate body. Re-evaluate if body or this container needs top margin. */
+                        /* The original body had padding: 20px; if that's desired universally, it's still there. */
 }
 
-#grid-container {
-    display: grid;
-    grid-template-columns: repeat(10, 40px); /* 10 columns, each 40px wide */
-    grid-template-rows: repeat(10, 40px);    /* 10 rows, each 40px high */
-    border: 2px solid #333;
-    width: 400px; /* 10 * 40px */
-    height: 400px; /* 10 * 40px */
-    position: relative; /* For boat positioning */
-    background-color: #add8e6; /* Light blue for water */
+#grid-container { /* This seems to be for a generic grid, potentially different from boat-grid-container */
+  display: grid;
+  grid-template-columns: repeat(10, 40px); /* 10 columns, each 40px wide */
+  grid-template-rows: repeat(10, 40px);    /* 10 rows, each 40px high */
+  border: 2px solid #333;
+  width: 400px; /* 10 * 40px */
+  height: 400px; /* 10 * 40px */
+  position: relative; /* For boat positioning */
+  background-color: #add8e6; /* Light blue for water */
 }
 
 .grid-cell {
-    width: 35px; /* Or 40px depending on your final choice */
-    height: 35px;/* Or 40px depending on your final choice */
-    border: 3px solid #b0c4de; /* Lighter blue border */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 35px; /* Or 40px depending on your final choice */
+  height: 35px;/* Or 40px depending on your final choice */
+  border: 3px solid #b0c4de; /* Lighter blue border */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /* === Boat Game Specific Styles === */
 .game-wrapper-boat-game { /* Styles for the whole game block if needed */
-    margin-bottom: 30px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
 #boat-grid-container {
-    /* display: grid; // Set in JS */
-    /* grid-template-columns: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
-    /* grid-template-rows: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
-    border: 2px solid #333;
-    /* width & height will be set by JS based on grid size and cell size */
-    position: relative;
-    background-color: #add8e6; /* Water */
-    overflow: hidden; /* In case boat tries to go too far out briefly */
+  /* display: grid; // Set in JS */
+  /* grid-template-columns: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
+  /* grid-template-rows: repeat(var(--boat-grid-size), var(--boat-cell-size)); // Set in JS */
+  border: 2px solid #333;
+  /* width & height will be set by JS based on grid size and cell size */
+  position: relative;
+  background-color: #add8e6; /* Water */
+  overflow: hidden; /* In case boat tries to go too far out briefly */
 }
 
 .boat-grid-cell {
-    /* width and height will be var(--boat-cell-size) set by JS */
-    border: 1px solid #97c8dc; /* Lighter blue border for water cells */
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* width and height will be var(--boat-cell-size) set by JS */
+  /* border: 1px solid #97c8dc; /* Lighter blue border for water cells */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .boat-entity { /* Class for the boat itself */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 20,90 80,90" style="fill:sienna;"/><rect x="45" y="5" width="10" height="40" style="fill:tan;"/><polygon points="50,5 70,25 50,25" style="fill:white;"/></svg>');
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%; /* Fill the cell */
-    height: 100%;
-    z-index: 10;
-    transition: transform 0.3s ease-out; /* Smooth movement transition */
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 20,90 80,90" style="fill:sienna;"/><rect x="45" y="5" width="10" height="40" style="fill:tan;"/><polygon points="50,5 70,25 50,25" style="fill:white;"/></svg>');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%; /* Fill the cell */
+  height: 100%;
+  z-index: 10;
+  transition: transform 0.3s ease-out; /* Smooth movement transition */
 }
 
 .shore {
-    background-color: #f4a460; /* Sandy brown for shore */
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="10" fill="%23c2b280"/><circle cx="50" cy="60" r="15" fill="%23c2b280"/><circle cx="75" cy="30" r="12" fill="%23c2b280"/><path d="M0 80 Q 50 70, 100 80 V 100 H 0 Z" fill="%23e0cfa8"/></svg>'); /* Simple sand/dune SVG */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-color: #f4a460; /* Sandy brown for shore */
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="10" fill="%23c2b280"/><circle cx="50" cy="60" r="15" fill="%23c2b280"/><circle cx="75" cy="30" r="12" fill="%23c2b280"/><path d="M0 80 Q 50 70, 100 80 V 100 H 0 Z" fill="%23e0cfa8"/></svg>'); /* Simple sand/dune SVG */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #boat-controls .boat-arrow-button {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    margin: 4px;
-    cursor: pointer;
-    background-color: #2196F3;
-    color: white;
-    border: 2px solid transparent; /* For selected state */
-    border-radius: 5px;
-    transition: background-color 0.2s, border-color 0.2s;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  margin: 4px;
+  cursor: pointer;
+  background-color: #2196F3;
+  color: white;
+  border: 2px solid transparent; /* For selected state */
+  border-radius: 5px;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 #boat-controls .boat-arrow-button:hover {
-    background-color: #0b7dda;
+  background-color: #0b7dda;
 }
 
 #boat-controls .boat-arrow-button.selected {
-    background-color: #ff9800; /* Orange when selected/pending */
-    border-color: #e65100; /* Darker orange border */
-    cursor: not-allowed;
+  background-color: #ff9800; /* Orange when selected/pending */
+  border-color: #e65100; /* Darker orange border */
+  cursor: not-allowed;
 }
 
 #boat-controls .boat-arrow-button:disabled { /* When game ends or mid-move */
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 #boat-take-control-button.active {
-    background-color: #f44336; /* Red when control is active */
+  background-color: #f44336; /* Red when control is active */
 }
+
 #boat-take-control-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }

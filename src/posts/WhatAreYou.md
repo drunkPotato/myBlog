@@ -3,7 +3,8 @@ title: "What is going on?"
 date: 2025-05-08
 tags: ["Understanding", "Life", "future", "post"]
 layout: base.njk
-image: /images
+image: /images/WhatsGoingOn.png
+excerpt: Exploration
 ---
 
 
