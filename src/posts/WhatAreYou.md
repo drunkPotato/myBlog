@@ -64,22 +64,25 @@ excerpt: Exploration
 <script src="/js/boat.js" defer></script>
 
 
-### Level 1: Your Biology
+### Your Biology
 
-1. Biologic Survival
-On a basic level, you are a brain centred biological organism.
-You need air, water, food, sleep, etc. These aren't preferences; they are fundamental requirements. 
-When the body ceases to function, for all practical purposes, "you" cease to exist in this form.
-
-2. Body - Mind Problem
-This physical body isn't just a passive container. 
-It actively shapes your state of mind and moment-to-moment experience (e.g. Hormones, Neurotransmitters).
-Think about how you are thinking differently when tired, angry, on drugs or when having sex.
-
-3. Shaped by Evolution
-Our biology isn't random.
-It's the product of millions of years of evolution favouring survival and reproduction.
-Many irrational behaviours can be traced back to this.
+You are a brain centred biological organism.<br>
+You need air, water, food, sleep, etc. to keep complex biological systems and processes running.<br>
+When the body cannot sustain itself, "you" die.<br><br>
+Your mind is not seperate from your body.<br>
+Take a moment to think how differently you think when:<br>
+<br>
+Tired
+<br>
+Angry
+<br>
+Having Sex
+<br>
+<br>
+Our biology isn't random.<br>
+It's the product of millions of years of evolution favouring survival and reproduction.<br>
+Many irrational behaviours can be traced back to this.<br>
+Later we will explore what this means for you and how to adapt.<br>
 
 
 ### Level 2: Your Experiences
