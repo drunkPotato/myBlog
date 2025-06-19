@@ -7,6 +7,70 @@ image: /images/WhatsGoingOn.png
 excerpt: Exploration
 ---
 
+### A Plan to Understand Things <br>
+
+In this post I will try to strategically explore what I understand as the most important topics.<br>
+For What?<br>
+To understand myself and my environment, so I can make the best possible decisions based on my wishes.<br>
+
+The approach will be:<br>
+Choose a Topic<br>
+Explain our current understanding<br>
+Real world examples we can falsify our theory with<br>
+Conclusion and Actionable Steps<br><br>
+
+### Biology
+##### Why cover Biology?<br>
+Because human biology can explain a great deal about human behaviour. Understanding our biological nature is key because:
+*   It helps us understand **ourselves** – why we feel and act in certain ways.
+*   It helps us understand **other people**, whose actions significantly influence us.
+
+Recognizing these biological influences is often the first step toward gaining more awareness and potentially, more deliberate control over our responses.
+##### Base Knowledge
+
+
+We do not consider inanimate objects to be alive.<br>
+This would include objects like<br>
+A Rock<br>
+A Car<br>
+A Cloud<br>
+
+A prerequisite for experience is to be alive.<br>
+At least for now because Artificial Intelligence is not there yet.<br>
+However a single celled organism doesnt experience the world.<br>
+Consciousness is poorly understood to this very day.<br>
+However we can be fairly sure that consciousness is a spectrum.<br>
+It will be hard for you to deny experience. Humans can feel a variety of things.<br>
+Examples are: Temperature, Love, Sounds, etc...<br>
+The question is: "Do animals experience too and if yes, how?"<br>
+It is, however, not possible to ask your dog how he is feeling.<br>
+Nevertheless, a dog shows behaviour linked to experience. They exhibit "happy" behaviour when you return 
+and "sad" ones when you leave.<br>
+Humans and dogs are still very complex organisms.<br>
+How does a fly experience the world?<br>
+What about a pigeon?<br>
+
+You are a brain centred biological organism.<br>
+
+
+You need air, water, food, sleep, etc. to keep complex biological systems and processes running.<br>
+When the body cannot sustain itself, "you" die.<br><br>
+Your mind is not seperate from your body.<br>
+Take a moment to think how differently you think when:<br>
+<br>
+Tired
+<br>
+Angry
+<br>
+Having Sex
+<br>
+<br>
+Our biology isn't random.<br>
+It's the product of millions of years of evolution favouring survival and reproduction.<br>
+Many irrational behaviours can be traced back to this.<br>
+Later we will explore what this means for you and how to adapt.<br>
+
+
 
 #### Random Buttons
 <div class="interactive-game-two">
@@ -62,27 +126,6 @@ excerpt: Exploration
     <p id="boat-game-victory" style="text-align:center; font-weight:bold; color:green; font-size:1.2em; min-height:1.5em;"></p>
 </div>
 <script src="/js/boat.js" defer></script>
-
-
-### Your Biology
-
-You are a brain centred biological organism.<br>
-You need air, water, food, sleep, etc. to keep complex biological systems and processes running.<br>
-When the body cannot sustain itself, "you" die.<br><br>
-Your mind is not seperate from your body.<br>
-Take a moment to think how differently you think when:<br>
-<br>
-Tired
-<br>
-Angry
-<br>
-Having Sex
-<br>
-<br>
-Our biology isn't random.<br>
-It's the product of millions of years of evolution favouring survival and reproduction.<br>
-Many irrational behaviours can be traced back to this.<br>
-Later we will explore what this means for you and how to adapt.<br>
 
 
 ### Level 2: Your Experiences
