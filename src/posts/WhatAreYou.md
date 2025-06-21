@@ -9,33 +9,53 @@ excerpt: Exploration
 
 ### A Plan to Understand Things <br>
 
-In this post I will try to strategically explore what I understand as the most important topics.<br>
-For What?<br>
-To understand myself and my environment, so I can make the best possible decisions based on my wishes.<br>
+To make sound decisions aligned with your true goals, you must understand both yourself and the environment you act within. <br>
+This post is a strategic attempt to explore what matters most.<br>
 
-The approach will be:<br>
-Choose a Topic<br>
-Explain our current understanding<br>
-Real world examples we can falsify our theory with<br>
-Conclusion and Actionable Steps<br><br>
+### The Approach Will Be
+
+#### 1. Prioritize Topics
+- Key aspects of reality that give us practical leverage, by enabling or by avoiding traps
+- Rate topics based on relevance, magnitude, potential, urgency, etc.
+
+#### 2. Clarify the Current Understanding
+- Establish foundational concepts (What needs to be addressed?)
+- Survey common intuition or misconceptions 
+- Develop a working model
+
+#### 3. Empirical Testing
+- Use real cases or counterexamples  
+- Identify limits, contradictions, or oversights in the current model
+
+#### 4. Identify Key Insights
+- Extract recurring patterns and mechanisms  
+- Create mental models
+
+#### 5. Actionable Steps
+- Improve Decision Accuracy
+- Increase Execution Reliability
+
 
 ### Biology
-##### Why cover Biology?<br>
+#### Why cover Biology?<br>
 Because human biology can explain a great deal about human behaviour. Understanding our biological nature is key because:
 *   It helps us understand **ourselves** – why we feel and act in certain ways.
 *   It helps us understand **other people**, whose actions significantly influence us.
 
 Recognizing these biological influences is often the first step toward gaining more awareness and potentially, more deliberate control over our responses.
-##### Base Knowledge
+#### Base Knowledge
+
+##### Evolution<br>
+Understanding human evolution helps us because:
+  - Behaviour has evoluitonary roots
+  - Our environment has changed rapidly
+  - Adapting to our environment gives us leverage
 
 
-We do not consider inanimate objects to be alive.<br>
-This would include objects like<br>
-A Rock<br>
-A Car<br>
-A Cloud<br>
+Your biology is not random.<br>
+It is the product of millions of years of natural selection, optimizing for survival and reproduction in ancient environments.<br>
+Humans evolved in small tribes with scarce food, no technology and immediate physical threats.<br>
 
-A prerequisite for experience is to be alive.<br>
 At least for now because Artificial Intelligence is not there yet.<br>
 However a single celled organism doesnt experience the world.<br>
 Consciousness is poorly understood to this very day.<br>
